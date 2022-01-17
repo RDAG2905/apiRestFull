@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</br>
+</br>
+<form action="/api/productos" method="get">
+    <fieldset>
+        <legend>Ver productos</legend>
+        <input type="submit" value="Ver productos">
+    </fieldset>
+</form>
+    </br>
+    </br>
+    <form action="/api/productos" method="get" id="formGetProductoById">
+        <fieldset>
+            <legend>Ver producto</legend>
+            <input type="text" placeholder="id de producto" id="idProductoGet" >
+            <button onclick="getProductoPorId()" id="btnVerProducto">Ver producto</button>
+        </fieldset>
+    </form>
+        </br>
+        </br>
+    <form action="/api/productos" method="post"  >
+        <fieldset>
+         <legend>Crear Producto:</legend>
+         <label for="title">Title:</label>
+         <input type="text" id="title" name="title" placeholder="title">
+         <label for="price">price:</label>
+         <input type="text" id="price" name="price" placeholder="price"> 
+         <label for="thumbnail">thumbnail:</label>
+         <input type="text" id="thumbnail" name="thumbnail" placeholder="thumbnail">
+         <input type="submit" value="Crear Producto">
+        </fieldset>
+    </form>
+</br>
+</br>
+<form action="/api/productos" method="put" id="formEditProductoById" >
+    <fieldset>
+     <legend>Editar Producto:</legend>
+     <label for="id">Id:</label>
+     <input type="text" id="idInputEdit" name="id" placeholder="id">
+     <label for="title">Title:</label>
+     <input type="text" id="title" name="title" placeholder="title">
+     <label for="price">price:</label>
+     <input type="text" id="price" name="price" placeholder="price"> 
+     <label for="thumbnail">thumbnail:</label>
+     <input type="text" id="thumbnail" name="thumbnail" placeholder="thumbnail">
+     <button onclick="editarProductoPorId()">Editar Producto</button>
+     <input type="submit" hidden id="btnSubmitEdit">
+    </fieldset>
+</form>
+</br>
+</br>
+</br>
+</br>
+<form action="/api/productos" method="delete" id="formDeleteProductoById">
+    <fieldset>
+        <legend>Eliminar producto</legend>
+        <input type="text" placeholder="id de producto" id="idProductoDelete" >
+        <button onclick="deleteProductoPorId()" id="btnDeleteProducto">Eliminar producto</button>
+    </fieldset>
+</form>
+
+
+
+</body>
+</html>
+
+<script>
+    const urlBase = "/api/productos/"
+
+    function getProductoPorId(){
+     const formularioGet = document.getElementById("formGetProductoById")
+     let input = document.getElementById("idProductoGet")
+     //let url = formulario.getAttribute("action") + "/" + input.value
+     let url = urlBase + input.value
+     formularioGet.setAttribute("action",url)
+     console.log(formularioGet.getAttribute("action")) 
+     //let btn = document.getElementById("btnVerProducto")
+     
+    } 
+
+    function editarProductoPorId(){
+     const formularioPut = document.getElementById("formEditProductoById")
+     let input = document.getElementById("idInputEdit")
+     //let url = formulario.getAttribute("action") + "/" + input.value
+     let url = urlBase + input.value
+     formularioPut.setAttribute("action",url)
+    // formularioPut.s
+     console.log(formularioPut.getAttribute("action")) 
+     console.log(formularioPut)
+     let btn = document.getElementById('btnSubmitEdit')
+     btn.click()
+     //let btn = document.getElementById("btnVerProducto")
+     
+    } 
+
+    function deleteProductoPorId(){
+     const formularioDelete = document.getElementById("formDeleteProductoById")
+     let input = document.getElementById("idProductoDelete")
+     //let url = formulario.getAttribute("action") + "/" + input.value
+     let url = urlBase + input.value
+     formularioDelete.setAttribute("action",url)
+     console.log(formularioDelete.getAttribute("action")) 
+     //let btn = document.getElementById("btnVerProducto")
+     
+    } 
+
+</script>
