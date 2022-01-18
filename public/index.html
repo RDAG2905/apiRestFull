@@ -40,26 +40,26 @@
     </form>
 </br>
 </br>
-<form action="/api/productos" method="put" id="formEditProductoById" >
+<form action="/api/productos" method="PUT" id="formEditProductoById" >
     <fieldset>
      <legend>Editar Producto:</legend>
      <label for="id">Id:</label>
-     <input type="text" id="idInputEdit" name="id" placeholder="id">
+     <input type="text" id="idInputEdit" name="id" placeholder="id" onchange="editarProductoPorId()">
      <label for="title">Title:</label>
      <input type="text" id="title" name="title" placeholder="title">
      <label for="price">price:</label>
      <input type="text" id="price" name="price" placeholder="price"> 
      <label for="thumbnail">thumbnail:</label>
      <input type="text" id="thumbnail" name="thumbnail" placeholder="thumbnail">
-     <button onclick="editarProductoPorId()">Editar Producto</button>
-     <input type="submit" hidden id="btnSubmitEdit">
+     <button onclick="editarProductoPorId()"></button>
+     <input type="submit"  id="btnSubmitEdit" value="Editar Producto">
     </fieldset>
 </form>
 </br>
 </br>
 </br>
 </br>
-<form action="/api/productos" method="delete" id="formDeleteProductoById">
+<form action="/api/productos" method="DELETE" id="formDeleteProductoById">
     <fieldset>
         <legend>Eliminar producto</legend>
         <input type="text" placeholder="id de producto" id="idProductoDelete" >
@@ -90,7 +90,8 @@
      const formularioPut = document.getElementById("formEditProductoById")
      let input = document.getElementById("idInputEdit")
      //let url = formulario.getAttribute("action") + "/" + input.value
-     let url = urlBase + input.value
+     let url = ""
+     url = urlBase + input.value
      formularioPut.setAttribute("action",url)
     // formularioPut.s
      console.log(formularioPut.getAttribute("action")) 

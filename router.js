@@ -59,10 +59,12 @@
      
      router.put('/:id',(req,res)=>{
         let id = req.params.id 
+        console.log(id)
         let productoEdicion = req.body
-        console.log('productoEdicion' + productoEdicion)  
-        //let existe = productos.find( pr => pr.id == id)
-        let index = productos.indexOf(product => { product.id === id})
+        console.log('productoEdicion' + productoEdicion) 
+        /*
+        let index = productos.indexOf(product => {return product.id == parseInt(id)})
+        console.log(index)
         if(index == -1){
             res.send({error})
         }else{
@@ -72,9 +74,10 @@
             let producto = productos[index]
             console.log(productos[index])
         }
+        */
         //res.send({"ok":""})
- 
-        /*if(!existe){
+        let existe = productos.find( pr => pr.id == id)
+        if(!existe){
             res.send({error})         
         }else{
             
@@ -82,14 +85,14 @@
             productos
             .forEach(element => {
                 if(element.id == id){
-                    element.title = productoEdicion.producto.title 
-                    element.price = productoEdicion.producto.price
-                    element.thumbnail = productoEdicion.producto.thumbnail                   
+                    element.title = productoEdicion.title 
+                    element.price = productoEdicion.price
+                    element.thumbnail = productoEdicion.thumbnail                   
                     producto = element
             }
             });
             res.send({producto}) 
-            }*/       
+            }     
      })
 
 
