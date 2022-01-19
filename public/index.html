@@ -51,7 +51,7 @@
      <input type="text" id="price" name="price" placeholder="price"> 
      <label for="thumbnail">thumbnail:</label>
      <input type="text" id="thumbnail" name="thumbnail" placeholder="thumbnail">
-     <button onclick="editarProductoPorId()"></button>
+     
      <input type="submit"  id="btnSubmitEdit" value="Editar Producto">
     </fieldset>
 </form>
@@ -62,8 +62,8 @@
 <form action="/api/productos" method="DELETE" id="formDeleteProductoById">
     <fieldset>
         <legend>Eliminar producto</legend>
-        <input type="text" placeholder="id de producto" id="idProductoDelete" >
-        <button onclick="deleteProductoPorId()" id="btnDeleteProducto">Eliminar producto</button>
+        <input type="text" placeholder="id de producto" id="idProductoDelete" onchange="deleteProductoPorId()">
+        <input type="submit"  id="btnSubmitDelete" value="Eliminar Producto">
     </fieldset>
 </form>
 
@@ -78,38 +78,36 @@
     function getProductoPorId(){
      const formularioGet = document.getElementById("formGetProductoById")
      let input = document.getElementById("idProductoGet")
-     //let url = formulario.getAttribute("action") + "/" + input.value
+     
      let url = urlBase + input.value
      formularioGet.setAttribute("action",url)
      console.log(formularioGet.getAttribute("action")) 
-     //let btn = document.getElementById("btnVerProducto")
+     
      
     } 
 
     function editarProductoPorId(){
      const formularioPut = document.getElementById("formEditProductoById")
      let input = document.getElementById("idInputEdit")
-     //let url = formulario.getAttribute("action") + "/" + input.value
+     
      let url = ""
      url = urlBase + input.value
      formularioPut.setAttribute("action",url)
-    // formularioPut.s
+    
      console.log(formularioPut.getAttribute("action")) 
      console.log(formularioPut)
-     let btn = document.getElementById('btnSubmitEdit')
-     btn.click()
-     //let btn = document.getElementById("btnVerProducto")
+     
      
     } 
 
     function deleteProductoPorId(){
      const formularioDelete = document.getElementById("formDeleteProductoById")
      let input = document.getElementById("idProductoDelete")
-     //let url = formulario.getAttribute("action") + "/" + input.value
+    
      let url = urlBase + input.value
      formularioDelete.setAttribute("action",url)
      console.log(formularioDelete.getAttribute("action")) 
-     //let btn = document.getElementById("btnVerProducto")
+     
      
     } 
 

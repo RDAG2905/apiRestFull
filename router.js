@@ -49,7 +49,6 @@
          }else{
              let ids = productos.map(p=>p.id)            
              let maxId = Math.max(...ids)
-             //console.log(`MaxId ${maxId}`)
              producto.id = maxId + 1
          }
          productos.push(producto) 
